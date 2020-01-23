@@ -62,7 +62,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //coverEverythingOld()
-        coverEverything13()
+
+
+        let deadlineTime = DispatchTime.now() + .milliseconds(250)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.coverEverything13()
+        }
+
     }
 
     @IBAction func btnOpenClick(_ sender: Any) {

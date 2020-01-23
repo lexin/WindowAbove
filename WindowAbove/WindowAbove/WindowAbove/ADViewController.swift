@@ -10,6 +10,7 @@ import UIKit
 
 class ADViewController: UIViewController {
 
+    @IBOutlet weak var webViewCenter: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,7 +20,23 @@ class ADViewController: UIViewController {
     @IBAction func btnCloseClick(_ sender: Any) {
         self.view.window?.windowLevel = UIWindow.Level.normal - 1;
     }
-    
+
+    @IBAction func btnShowWebClick(_ sender: Any) {
+        moveWebViewCenter(value: 0)
+    }
+
+    @IBAction func btnHideWebClick(_ sender: Any) {
+        moveWebViewCenter(value: self.view.frame.size.width)
+    }
+
+    func moveWebViewCenter(value: CGFloat) {
+        UIView.animate(withDuration: 0.25) {
+            self.webViewCenter.constant = value
+            self.view.layoutIfNeeded()
+        }
+    }
+
+
     /*
     // MARK: - Navigation
 
