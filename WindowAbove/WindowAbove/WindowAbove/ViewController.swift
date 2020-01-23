@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     var coveringWindow: UIWindow?
 
-     func coverEverything13() {
+    func coverEverything13() {
 
         if #available(iOS 13.0, *) {
             let windowScene = UIApplication.shared
@@ -22,19 +22,20 @@ class ViewController: UIViewController {
 
             if let windowScene = windowScene as? UIWindowScene {
                 if (coveringWindow==nil) {
-                coveringWindow = UIWindow(windowScene: windowScene)
+                    coveringWindow = UIWindow(windowScene: windowScene)
                     if let coveringWindow = coveringWindow {
-                                           coveringWindow.frame = UIScreen.main.bounds
-                                              coveringWindow.backgroundColor = UIColor.red
-                                              coveringWindow.windowLevel = UIWindow.Level.alert + 1
-                                              coveringWindow.isHidden = false
-                                               coveringWindow.makeKeyAndVisible()
-                                              let adVC: ADViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADViewController") as! ADViewController
+                        coveringWindow.frame = UIScreen.main.bounds
+                        coveringWindow.backgroundColor = UIColor.clear
+                        coveringWindow.windowLevel = UIWindow.Level.alert + 1
+                        coveringWindow.isHidden = false
+                        coveringWindow.makeKeyAndVisible()
+                        //let adVC: ADViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADViewController") as! ADViewController
+                        let adVC: ADmanualViewController = ADmanualViewController(viewModel: "VM", someDependency: "dep")
 
-                                              coveringWindow.rootViewController = adVC
-                                          }
+                        coveringWindow.rootViewController = adVC
+                    }
                 } else {
-				coveringWindow?.windowLevel = UIWindow.Level.alert + 1
+                    coveringWindow?.windowLevel = UIWindow.Level.alert + 1
                 }
             }
         }
@@ -46,10 +47,10 @@ class ViewController: UIViewController {
             coveringWindow = UIWindow(frame: UIScreen.main.bounds)
 
             if let coveringWindow = coveringWindow {
-                coveringWindow.backgroundColor = UIColor.red
+                coveringWindow.backgroundColor = UIColor.clear
                 coveringWindow.windowLevel = UIWindow.Level.alert + 1
                 coveringWindow.isHidden = false
-                let adVC: ADViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADViewController") as! ADViewController
+               	let adVC: ADmanualViewController = ADmanualViewController(viewModel: "VM", someDependency: "dep")
 
                 coveringWindow.rootViewController = adVC
             }
@@ -61,19 +62,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //coverEverythingOld()
-
-
         let deadlineTime = DispatchTime.now() + .milliseconds(250)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            self.coverEverything13()
+            self.btnOpenClick(self)
         }
 
     }
 
     @IBAction func btnOpenClick(_ sender: Any) {
-        //coverEverythingOld()
-        coverEverything13()
+         if #available(iOS 13.0, *) {
+            coverEverything13()
+         } else {
+			coverEverythingOld()
+        }
     }
 
 }
