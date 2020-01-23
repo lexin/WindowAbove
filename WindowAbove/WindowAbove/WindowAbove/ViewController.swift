@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var coveringWindow: UIWindow?
 
        func coverEverything() {
+        if (coveringWindow==nil) {
         coveringWindow = UIWindow(frame: UIScreen.main.bounds)
 
            if let coveringWindow = coveringWindow {
@@ -22,7 +23,11 @@ class ViewController: UIViewController {
             let adVC: ADViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADViewController") as! ADViewController
 
             coveringWindow.rootViewController = adVC
+            }
            }
+        else {
+			coveringWindow?.windowLevel = UIWindow.Level.alert + 1
+        }
        }
 
     override func viewDidLoad() {
@@ -30,6 +35,9 @@ class ViewController: UIViewController {
      	coverEverything()
     }
 
+    @IBAction func btnOpenClick(_ sender: Any) {
+       coverEverything()
+    }
 
 }
 

@@ -16,7 +16,10 @@ class ADViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func btnCloseClick(_ sender: Any) {
+        self.view.window?.windowLevel = UIWindow.Level.normal - 1;
+    }
+    
     /*
     // MARK: - Navigation
 
