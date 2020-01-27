@@ -16,14 +16,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let deadlineTime = DispatchTime.now() + .milliseconds(250)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            ADPresenter.shared.showAD()
-          
+            self.btnOpenClick(self)
         }
 
     }
 
     @IBAction func btnOpenClick(_ sender: Any) {
-        ADPresenter.shared.showAD()
+        let ad: ADViewModel = ADViewModel(param1: "top", param2: "botom", param3: "r1", param4: "r2", param5: "r3") { (val1, val2, val3) in
+            print (val1)
+            print (val2)
+            print (val3)
+        }
+        ADPresenter.shared.showAD(viewModel: ad)
+
     }
 
 }

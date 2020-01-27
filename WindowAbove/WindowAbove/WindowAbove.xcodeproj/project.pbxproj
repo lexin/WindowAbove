@@ -15,6 +15,7 @@
 		03205ED723D98D1E000233FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03205ED523D98D1E000233FF /* LaunchScreen.storyboard */; };
 		03205EE523D9A5F0000233FF /* ADmanualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205EE423D9A5F0000233FF /* ADmanualViewController.swift */; };
 		03B40B6E23DEEB2D005E557B /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B6D23DEEB2D005E557B /* ADPresenter.swift */; };
+		03B40BB023DF063C005E557B /* ADViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40BAF23DF063B005E557B /* ADViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		03205ED823D98D1E000233FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03205EE423D9A5F0000233FF /* ADmanualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADmanualViewController.swift; sourceTree = "<group>"; };
 		03B40B6D23DEEB2D005E557B /* ADPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADPresenter.swift; sourceTree = "<group>"; };
+		03B40BAF23DF063B005E557B /* ADViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				03205ECC23D98D1A000233FF /* SceneDelegate.swift */,
 				03205ECE23D98D1A000233FF /* ViewController.swift */,
 				03205EE423D9A5F0000233FF /* ADmanualViewController.swift */,
+				03B40BAF23DF063B005E557B /* ADViewModel.swift */,
 				03B40B6D23DEEB2D005E557B /* ADPresenter.swift */,
 				03205ED023D98D1A000233FF /* Main.storyboard */,
 				03205ED323D98D1E000233FF /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03205ECF23D98D1A000233FF /* ViewController.swift in Sources */,
+				03B40BB023DF063C005E557B /* ADViewModel.swift in Sources */,
 				03205EE523D9A5F0000233FF /* ADmanualViewController.swift in Sources */,
 				03B40B6E23DEEB2D005E557B /* ADPresenter.swift in Sources */,
 				03205ECB23D98D1A000233FF /* AppDelegate.swift in Sources */,
