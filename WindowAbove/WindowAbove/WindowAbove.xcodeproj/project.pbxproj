@@ -13,8 +13,8 @@
 		03205ED223D98D1A000233FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03205ED023D98D1A000233FF /* Main.storyboard */; };
 		03205ED423D98D1E000233FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03205ED323D98D1E000233FF /* Assets.xcassets */; };
 		03205ED723D98D1E000233FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03205ED523D98D1E000233FF /* LaunchScreen.storyboard */; };
-		03205EE323D995B9000233FF /* ADViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205EE223D995B9000233FF /* ADViewController.swift */; };
 		03205EE523D9A5F0000233FF /* ADmanualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205EE423D9A5F0000233FF /* ADmanualViewController.swift */; };
+		03B40B6E23DEEB2D005E557B /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B6D23DEEB2D005E557B /* ADPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,8 @@
 		03205ED323D98D1E000233FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03205ED623D98D1E000233FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03205ED823D98D1E000233FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03205EE223D995B9000233FF /* ADViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADViewController.swift; sourceTree = "<group>"; };
 		03205EE423D9A5F0000233FF /* ADmanualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADmanualViewController.swift; sourceTree = "<group>"; };
+		03B40B6D23DEEB2D005E557B /* ADPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +62,9 @@
 			children = (
 				03205ECA23D98D1A000233FF /* AppDelegate.swift */,
 				03205ECC23D98D1A000233FF /* SceneDelegate.swift */,
-				03205EE423D9A5F0000233FF /* ADmanualViewController.swift */,
 				03205ECE23D98D1A000233FF /* ViewController.swift */,
-				03205EE223D995B9000233FF /* ADViewController.swift */,
+				03205EE423D9A5F0000233FF /* ADmanualViewController.swift */,
+				03B40B6D23DEEB2D005E557B /* ADPresenter.swift */,
 				03205ED023D98D1A000233FF /* Main.storyboard */,
 				03205ED323D98D1E000233FF /* Assets.xcassets */,
 				03205ED523D98D1E000233FF /* LaunchScreen.storyboard */,
@@ -146,7 +146,7 @@
 			files = (
 				03205ECF23D98D1A000233FF /* ViewController.swift in Sources */,
 				03205EE523D9A5F0000233FF /* ADmanualViewController.swift in Sources */,
-				03205EE323D995B9000233FF /* ADViewController.swift in Sources */,
+				03B40B6E23DEEB2D005E557B /* ADPresenter.swift in Sources */,
 				03205ECB23D98D1A000233FF /* AppDelegate.swift in Sources */,
 				03205ECD23D98D1A000233FF /* SceneDelegate.swift in Sources */,
 			);

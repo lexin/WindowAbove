@@ -10,71 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var coveringWindow: UIWindow?
-
-    func coverEverything13() {
-
-        if #available(iOS 13.0, *) {
-            let windowScene = UIApplication.shared
-                .connectedScenes
-                .filter { $0.activationState == .foregroundActive }
-                .first
-
-            if let windowScene = windowScene as? UIWindowScene {
-                if (coveringWindow==nil) {
-                    coveringWindow = UIWindow(windowScene: windowScene)
-                    if let coveringWindow = coveringWindow {
-                        coveringWindow.frame = UIScreen.main.bounds
-                        coveringWindow.backgroundColor = UIColor.clear
-                        coveringWindow.windowLevel = UIWindow.Level.alert + 1
-                        coveringWindow.isHidden = false
-                        coveringWindow.makeKeyAndVisible()
-                        //let adVC: ADViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADViewController") as! ADViewController
-                        let adVC: ADmanualViewController = ADmanualViewController(viewModel: "VM", someDependency: "dep")
-
-                        coveringWindow.rootViewController = adVC
-                    }
-                } else {
-                    coveringWindow?.windowLevel = UIWindow.Level.alert + 1
-                }
-            }
-        }
-
-    }
-
-    func coverEverythingOld() {
-        if (coveringWindow==nil) {
-            coveringWindow = UIWindow(frame: UIScreen.main.bounds)
-
-            if let coveringWindow = coveringWindow {
-                coveringWindow.backgroundColor = UIColor.clear
-                coveringWindow.windowLevel = UIWindow.Level.alert + 1
-                coveringWindow.isHidden = false
-               	let adVC: ADmanualViewController = ADmanualViewController(viewModel: "VM", someDependency: "dep")
-
-                coveringWindow.rootViewController = adVC
-            }
-        }
-        else {
-            coveringWindow?.windowLevel = UIWindow.Level.alert + 1
-        }
-    }
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let deadlineTime = DispatchTime.now() + .milliseconds(250)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            self.btnOpenClick(self)
+            ADPresenter.shared.showAD()
+          
         }
 
     }
 
     @IBAction func btnOpenClick(_ sender: Any) {
-         if #available(iOS 13.0, *) {
-            coverEverything13()
-         } else {
-			coverEverythingOld()
-        }
+        ADPresenter.shared.showAD()
     }
 
 }
