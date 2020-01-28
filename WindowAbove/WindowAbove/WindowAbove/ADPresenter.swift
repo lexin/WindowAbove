@@ -75,6 +75,9 @@ public class ADPresenter: NSObject {
                 //something wrong with window creation
             }
         } else {
+            adVC?.show {
+                
+            }
             coveringWindow?.isHidden = false
         }
     }

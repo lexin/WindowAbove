@@ -17,6 +17,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
     var hiddenContentCenter : CGPoint = CGPoint(x: 0, y: 0)
     var shownContentCenter : CGPoint = CGPoint(x: 0, y: 0)
     var viewModel: ADViewModel?
+    var alreadyLoaded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +42,13 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         self.webView = WKWebView(frame: centerView.bounds)
         self.webView?.navigationDelegate = self
         centerView.addSubview(webView!)
-        let request = URLRequest(url: URL(string: "https://www.pollfish.com")!)
-        webView!.load(request)
+        self.load()
 
         hiddenContentCenter = CGPoint(x: self.view.frame.size.width + self.view.frame.size.width/2.0, y: webView!.center.y) // set the right side position
         shownContentCenter = CGPoint(x: self.view.frame.size.width/2.0, y:self.webView!.center.y ) // center of the view
 
-        webView!.center = hiddenContentCenter
 
+        webView?.center = self.hiddenContentCenter
         let hLabel = 30
         let wLabel = Int(self.view.frame.size.width)
         let topLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: wLabel, height: hLabel))
@@ -65,6 +65,24 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         bottomLabel.textAlignment = .center
         webView!.addSubview(bottomLabel)
 
+    }
+
+    func load() {
+        let request = URLRequest(url: URL(string: "https://www.pollfish.com")!)
+        webView?.load(request)
+    }
+
+    func show(ended:@escaping ()->() ) {
+        if (self.alreadyLoaded) {
+        UIView.animate(withDuration: 0.25, animations: {
+                   self.webView!.center = self.shownContentCenter
+               },
+                   completion: { (_) in
+                    ended()
+            })
+        } else {
+			load()
+        }
     }
 
     func close(ended:@escaping ()->() ) {
@@ -102,8 +120,9 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print ("webView didFinish END")
-        UIView.animate(withDuration: 0.25) {
-            self.webView!.center = self.shownContentCenter
+        alreadyLoaded = true
+        self.show {
+
         }
 
     }
