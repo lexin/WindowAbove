@@ -28,7 +28,7 @@ public class ADPresenter: NSObject {
     public func showAD(viewModel: ADViewModel) {
         coverEverything(viewModel: viewModel)
 
-        let deadlineTime = DispatchTime.now() + .milliseconds(4250)
+        let deadlineTime = DispatchTime.now() + .milliseconds(14250)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.hideAD()
         }
@@ -76,7 +76,7 @@ public class ADPresenter: NSObject {
             }
         } else {
             adVC?.show {
-                
+
             }
             coveringWindow?.isHidden = false
         }
