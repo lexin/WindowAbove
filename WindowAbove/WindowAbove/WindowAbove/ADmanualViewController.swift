@@ -40,45 +40,31 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         self.viewModel = viewModel
         self.view.backgroundColor = UIColor.clear
 
-        let tx: CGFloat = 0
-        let ty: CGFloat = UIDevice.current.orientation.isLandscape ?  (statusBarFrameL ?? 0) : (statusBarFrameP  ?? 0)
-        let w = self.view.frame.size.width - tx*2
-        let h = self.view.frame.size.height - ty
-
-        self.centerView = UIView(frame: CGRect(x: tx, y: ty, width: w, height: h))
+        self.centerView = UIView(frame: CGRect.zero)
         centerView!.backgroundColor = UIColor.clear
         self.view.addSubview(centerView!)
 
-        self.webView = WKWebView(frame: centerView!.bounds)
+        self.webView = WKWebView(frame: CGRect.zero);
         self.webView?.navigationDelegate = self
         centerView!.addSubview(webView!)
         self.load()
 
-        hiddenContentCenter = CGPoint(x: self.view.frame.size.width + self.view.frame.size.width/2.0, y: webView!.center.y) // set the right side position
-        shownContentCenter = CGPoint(x: self.view.frame.size.width/2.0, y:self.webView!.center.y ) // center of the view
-
-
-        webView?.center = self.hiddenContentCenter
-        let hLabel = 30
-        let wLabel = Int(self.view.frame.size.width)
-        self.topLabel = UILabel(frame: CGRect(x: 0, y: 0, width: wLabel, height: hLabel))
+        self.topLabel = UILabel(frame: CGRect.zero)
         topLabel!.backgroundColor = UIColor.clear
         topLabel!.font = UIFont.boldSystemFont(ofSize: 14)
         topLabel!.text = viewModel.param1
         topLabel!.textAlignment = .center
         webView!.addSubview(topLabel!)
 
-        self.bottomLabel = UILabel(frame: CGRect(x: 0, y: Int(webView?.frame.size.height ?? 100) - hLabel*2, width: wLabel, height: hLabel*2))
+        self.bottomLabel = UILabel(frame: CGRect.zero)
         bottomLabel!.backgroundColor = UIColor.lightGray
         bottomLabel!.font = UIFont.boldSystemFont(ofSize: 14)
         bottomLabel!.text = viewModel.param2
         bottomLabel!.textAlignment = .center
         webView!.addSubview(bottomLabel!)
-
     }
 
     func setProperFrames(mainSize: CGSize) {
-
         let tx: CGFloat = 0
         let ty: CGFloat = UIDevice.current.orientation.isLandscape ?  (statusBarFrameL ?? 0) : (statusBarFrameP  ?? 0)
         let w = mainSize.width - tx*2
@@ -96,6 +82,11 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         hiddenContentCenter = CGPoint(x: mainSize.width + mainSize.width/2.0, y: webView!.center.y) // set the right side position
         shownContentCenter = CGPoint(x: mainSize.width/2.0, y:self.webView!.center.y ) // center of the view
 
+        if (isADVisibleNow) {
+            self.webView?.center = shownContentCenter
+        } else {
+            self.webView?.center = hiddenContentCenter
+        }
     }
 
     func detectStatusBarHeight() {
@@ -114,15 +105,10 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         	setProperFrames(mainSize: self.view.frame.size)
         }
     }
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-
         setProperFrames(mainSize:size)
-        if (isADVisibleNow) {
-            self.webView?.center = shownContentCenter
-        } else {
-            self.webView?.center = hiddenContentCenter
-        }
     }
 
     func load() {
