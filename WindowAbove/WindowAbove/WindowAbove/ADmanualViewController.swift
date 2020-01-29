@@ -14,9 +14,10 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView?
 
-    var topLabel: UILabel? = nil
-    var bottomLabel: UILabel? = nil
-    var centerView: UIView? = nil
+    var topLabel: UILabel? 		= nil
+    var bottomLabel: UILabel? 	= nil
+    var centerView: UIView? 	= nil
+    var btnClose: UIButton? 	= nil
 
     var hiddenContentCenter : CGPoint = CGPoint(x: 0, y: 0)
     var shownContentCenter : CGPoint = CGPoint(x: 0, y: 0)
@@ -27,6 +28,8 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
     var statusBarFrameP : CGFloat? = nil
     var statusBarFrameL : CGFloat? = nil
+
+    var btnCloseClicked: (()->())? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +65,16 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         bottomLabel!.text = viewModel.param2
         bottomLabel!.textAlignment = .center
         webView!.addSubview(bottomLabel!)
+
+        self.btnClose = UIButton(frame: CGRect.zero)
+        btnClose!.setImage(UIImage(imageLiteralResourceName: "close"), for: .normal)
+        btnClose!.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        webView!.addSubview(btnClose!)
+    }
+
+    @objc func buttonAction(sender: UIButton!) {
+        btnCloseClicked?()
+
     }
 
     func setProperFrames(mainSize: CGSize) {
@@ -87,6 +100,8 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         } else {
             self.webView?.center = hiddenContentCenter
         }
+
+        btnClose!.frame = CGRect(x: 1, y: 10, width: 50, height: 50)
     }
 
     func detectStatusBarHeight() {
@@ -123,7 +138,10 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
             },
                            completion: { (_) in
                             self.isADVisibleNow = true
-                            ended()
+                            if let vm = self.viewModel {
+                                vm.callbackOpen()
+                                ended()
+                            }
             })
         } else {
             load()
@@ -137,7 +155,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
                        completion: { (_) in
                         self.isADVisibleNow = false
                         if let vm = self.viewModel {
-                            vm.callback(vm.param3, vm.param4, vm.param5)
+                            vm.callbackClose(vm.param3, vm.param4, vm.param5)
                             ended()
                         }
         })

@@ -38,7 +38,6 @@ public class ADPresenter: NSObject {
 
     public func hideAD() {
         self.adVC?.close {
-            print("closed")
         	self.coveringWindow?.isHidden = true
         }
 
@@ -71,6 +70,9 @@ public class ADPresenter: NSObject {
                 coveringWindow.makeKeyAndVisible()
                 adVC = ADmanualViewController(viewModel: viewModel)
                 coveringWindow.rootViewController = adVC
+                adVC?.btnCloseClicked = {
+                    self.hideAD()
+                }
             } else {
                 //something wrong with window creation
             }
