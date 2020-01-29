@@ -11,9 +11,7 @@ import WebKit
 
 class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
-
     var webView: WKWebView?
-
     var topLabel: UILabel? 		= nil
     var bottomLabel: UILabel? 	= nil
     var centerView: UIView? 	= nil
@@ -101,7 +99,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
             self.webView?.center = hiddenContentCenter
         }
 
-        btnClose!.frame = CGRect(x: 1, y: 10, width: 50, height: 50)
+        btnClose!.frame = CGRect(x: 10, y: 10, width: 30, height: 30)
     }
 
     func detectStatusBarHeight() {

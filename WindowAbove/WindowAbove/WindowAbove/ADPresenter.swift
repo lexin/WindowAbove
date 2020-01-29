@@ -70,18 +70,21 @@ public class ADPresenter: NSObject {
                 coveringWindow.makeKeyAndVisible()
                 adVC = ADmanualViewController(viewModel: viewModel)
                 coveringWindow.rootViewController = adVC
-                adVC?.btnCloseClicked = {
-                    self.hideAD()
-                }
+
             } else {
                 //something wrong with window creation
             }
         } else {
-            adVC?.show {
-
+            adVC = ADmanualViewController(viewModel: viewModel)
+             if let coveringWindow = coveringWindow {
+            	coveringWindow.rootViewController = adVC
+            	coveringWindow.isHidden = false
             }
-            coveringWindow?.isHidden = false
         }
+        adVC?.btnCloseClicked = {
+            self.hideAD()
+        }
+
     }
 }
 
