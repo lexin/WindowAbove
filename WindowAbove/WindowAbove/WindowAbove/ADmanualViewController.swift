@@ -28,6 +28,10 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
     var statusBarFrameL : CGFloat? = nil
 
     var btnCloseClicked: (()->())? = nil
+    var adShouldBeReInit: (()->())? = nil
+    var adIsLoaded: (()->())? = nil
+
+    var currentOrientation : UIDeviceOrientation? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
         detectStatusBarHeight()
 
+        let grayWithAlpha = UIColor(white: 0.5, alpha: 0.5)
         self.viewModel = viewModel
         self.view.backgroundColor = UIColor.clear
 
@@ -51,14 +56,14 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         self.load()
 
         self.topLabel = UILabel(frame: CGRect.zero)
-        topLabel!.backgroundColor = UIColor.clear
+        topLabel!.backgroundColor = grayWithAlpha
         topLabel!.font = UIFont.boldSystemFont(ofSize: 14)
         topLabel!.text = viewModel.param1
         topLabel!.textAlignment = .center
         webView!.addSubview(topLabel!)
 
         self.bottomLabel = UILabel(frame: CGRect.zero)
-        bottomLabel!.backgroundColor = UIColor.lightGray
+        bottomLabel!.backgroundColor = grayWithAlpha
         bottomLabel!.font = UIFont.boldSystemFont(ofSize: 14)
         bottomLabel!.text = viewModel.param2
         bottomLabel!.textAlignment = .center
@@ -67,12 +72,16 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         self.btnClose = UIButton(frame: CGRect.zero)
         btnClose!.setImage(UIImage(imageLiteralResourceName: "close"), for: .normal)
         btnClose!.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        btnClose!.backgroundColor = grayWithAlpha
+        btnClose!.layer.cornerRadius = 15
         webView!.addSubview(btnClose!)
+
+        self.currentOrientation = UIDevice.current.orientation
+
     }
 
     @objc func buttonAction(sender: UIButton!) {
         btnCloseClicked?()
-
     }
 
     func setProperFrames(mainSize: CGSize) {
@@ -121,6 +130,18 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        if let currentOrientation = self.currentOrientation {
+            if (currentOrientation != UIDevice.current.orientation) {
+				print("new orientation")
+                adShouldBeReInit?()
+            } else {
+				print("same orientation")
+            }
+
+        } else {
+            self.currentOrientation = UIDevice.current.orientation
+            print("set orientation")
+        }
         setProperFrames(mainSize:size)
     }
 
@@ -131,16 +152,21 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
     func show(ended:@escaping ()->() ) {
         if (self.alreadyLoaded) {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.webView!.center = self.shownContentCenter
-            },
-                           completion: { (_) in
-                            self.isADVisibleNow = true
-                            if let vm = self.viewModel {
-                                vm.callbackOpen()
-                                ended()
-                            }
-            })
+            adIsLoaded? ()
+            let deadlineTime = DispatchTime.now() + .milliseconds(10)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.webView!.center = self.shownContentCenter
+                },
+                               completion: { (_) in
+                                self.isADVisibleNow = true
+                                if let vm = self.viewModel {
+                                    vm.callbackOpen()
+                                    ended()
+                                }
+                })
+
+            }
         } else {
             load()
         }
@@ -183,6 +209,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print ("webView didFinish END")
         alreadyLoaded = true
+
         self.show {
 
         }
@@ -190,6 +217,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        adIsLoaded? ()
         print ("webView didFail \(error.localizedDescription)")
     }
 

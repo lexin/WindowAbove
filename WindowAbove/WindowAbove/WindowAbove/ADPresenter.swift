@@ -16,6 +16,11 @@ public class ADPresenter: NSObject {
     }()
 
 
+    public var initADEachTime: Bool = true
+
+    var viewModel : ADViewModel? = nil
+    var alreadyStartedProcess = false
+
     override private init() {
         super.init()
         print ("self \(self)")
@@ -26,13 +31,13 @@ public class ADPresenter: NSObject {
     }
 
     public func showAD(viewModel: ADViewModel) {
-        coverEverything(viewModel: viewModel)
-
-        let deadlineTime = DispatchTime.now() + .milliseconds(14250)
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            self.hideAD()
+        if (alreadyStartedProcess == false) {
+            alreadyStartedProcess = true
+        	self.viewModel = viewModel
+        	coverEverything(viewModel: viewModel)
+        } else {
+            print("the process is already start")
         }
-
     }
     
 
@@ -40,7 +45,6 @@ public class ADPresenter: NSObject {
         self.adVC?.close {
         	self.coveringWindow?.isHidden = true
         }
-
     }
 
     var coveringWindow: UIWindow?
@@ -66,25 +70,39 @@ public class ADPresenter: NSObject {
                 coveringWindow.frame = UIScreen.main.bounds
                 coveringWindow.backgroundColor = UIColor.clear
                 coveringWindow.windowLevel = UIWindow.Level.alert + 1
-                coveringWindow.isHidden = false
+
                 coveringWindow.makeKeyAndVisible()
                 adVC = ADmanualViewController(viewModel: viewModel)
                 coveringWindow.rootViewController = adVC
+                coveringWindow.isHidden = true
 
             } else {
                 //something wrong with window creation
             }
         } else {
-            adVC = ADmanualViewController(viewModel: viewModel)
+
+            if ( (adVC == nil) || (self.initADEachTime) ) {
+            	adVC = ADmanualViewController(viewModel: viewModel)
+                coveringWindow?.isHidden = true
+            } else {
+                adVC?.show {}
+            }
              if let coveringWindow = coveringWindow {
             	coveringWindow.rootViewController = adVC
-            	coveringWindow.isHidden = false
             }
         }
         adVC?.btnCloseClicked = {
             self.hideAD()
         }
-
+        adVC?.adIsLoaded = {
+            self.alreadyStartedProcess = false
+            self.coveringWindow?.isHidden = false
+        }
+        adVC?.adShouldBeReInit = {
+            if let viewModel = self.viewModel {
+                self.coverEverything(viewModel: viewModel)
+            }
+        }
     }
 }
 
