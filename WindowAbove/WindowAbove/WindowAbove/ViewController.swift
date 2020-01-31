@@ -14,11 +14,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let deadlineTime = DispatchTime.now() + .milliseconds(250)
-//        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-//            self.btnOpenClick(self)
-//        }
-
     }
     
     @IBAction func btnOpenClick(_ sender: Any) {

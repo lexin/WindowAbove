@@ -23,13 +23,8 @@ public class ADPresenter: NSObject {
 
     override private init() {
         super.init()
-        print ("self \(self)")
     }
-
-    public func testPublicAD() {
-        print("testPublicAD")
-    }
-
+    
     public func showAD(viewModel: ADViewModel) {
         if (alreadyStartedProcess == false) {
             alreadyStartedProcess = true
@@ -51,6 +46,12 @@ public class ADPresenter: NSObject {
     var adVC: ADmanualViewController?
 
     func coverEverything(viewModel: ADViewModel) {
+
+        guard let adID = ADIdentifier.shared.identifierForAdvertising() else {
+            return
+        }
+        
+
         if (coveringWindow==nil) {
             if #available(iOS 13.0, *) {
                 let windowScene = UIApplication.shared
@@ -72,7 +73,7 @@ public class ADPresenter: NSObject {
                 coveringWindow.windowLevel = UIWindow.Level.alert + 1
 
                 coveringWindow.makeKeyAndVisible()
-                adVC = ADmanualViewController(viewModel: viewModel)
+                adVC = ADmanualViewController(viewModel: viewModel, adID: adID)
                 coveringWindow.rootViewController = adVC
                 coveringWindow.isHidden = true
 
@@ -82,7 +83,7 @@ public class ADPresenter: NSObject {
         } else {
 
             if ( (adVC == nil) || (self.initADEachTime) ) {
-            	adVC = ADmanualViewController(viewModel: viewModel)
+                adVC = ADmanualViewController(viewModel: viewModel, adID: adID)
                 coveringWindow?.isHidden = true
             } else {
                 adVC?.show {}

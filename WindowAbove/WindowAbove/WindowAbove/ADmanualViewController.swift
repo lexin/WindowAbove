@@ -13,6 +13,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView?
     var topLabel: UILabel? 		= nil
+    var midLabel: UILabel?      = nil
     var bottomLabel: UILabel? 	= nil
     var centerView: UIView? 	= nil
     var btnClose: UIButton? 	= nil
@@ -37,7 +38,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
     }
 
-    init(viewModel: ADViewModel) {
+    init(viewModel: ADViewModel, adID: String) {
         super.init(nibName: nil, bundle: nil)
 
         detectStatusBarHeight()
@@ -62,9 +63,16 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         topLabel!.textAlignment = .center
         webView!.addSubview(topLabel!)
 
+        self.midLabel = UILabel(frame: CGRect.zero)
+        midLabel!.backgroundColor = grayWithAlpha
+        midLabel!.font = UIFont.boldSystemFont(ofSize: 14)
+        midLabel!.text = adID
+        midLabel!.textAlignment = .center
+        webView!.addSubview(midLabel!)
+
         self.bottomLabel = UILabel(frame: CGRect.zero)
-        bottomLabel!.backgroundColor = grayWithAlpha
-        bottomLabel!.font = UIFont.boldSystemFont(ofSize: 14)
+        bottomLabel!.backgroundColor = UIColor.lightGray
+        bottomLabel!.font = UIFont.boldSystemFont(ofSize: 12)
         bottomLabel!.text = viewModel.param2
         bottomLabel!.textAlignment = .center
         webView!.addSubview(bottomLabel!)
@@ -93,11 +101,17 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         centerView!.frame = CGRect(x: tx, y: ty, width: w, height: h)
         self.webView?.frame = centerView!.bounds
 
-        let hLabel = 30
-        let wLabel = Int(mainSize.width)
+        let hLabel: CGFloat = 30
+        let wLabel: CGFloat = mainSize.width
 
         topLabel?.frame =  CGRect(x: 0, y: 0, width: wLabel, height: hLabel)
-        bottomLabel?.frame = CGRect(x: 0, y: Int(webView?.frame.size.height ?? 100) - hLabel*2, width: wLabel, height: hLabel*2)
+
+        let webHeight: CGFloat = webView?.frame.size.height ?? 100;
+        bottomLabel?.frame = CGRect(x: 0, y: webHeight-hLabel*2, width: wLabel, height: hLabel*2)
+
+
+        let midY  = webHeight / 2.0;
+        midLabel?.frame = CGRect(x: 0, y: midY - hLabel, width: wLabel, height: hLabel*2)
 
         hiddenContentCenter = CGPoint(x: mainSize.width + mainSize.width/2.0, y: webView!.center.y) // set the right side position
         shownContentCenter = CGPoint(x: mainSize.width/2.0, y:self.webView!.center.y ) // center of the view
