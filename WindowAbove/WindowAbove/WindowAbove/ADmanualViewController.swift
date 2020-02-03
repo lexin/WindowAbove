@@ -43,7 +43,6 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
         detectStatusBarHeight()
 
-        let grayWithAlpha = UIColor(white: 0.5, alpha: 0.5)
         self.viewModel = viewModel
         self.view.backgroundColor = UIColor.clear
 
@@ -56,35 +55,20 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         centerView!.addSubview(webView!)
         self.load()
 
-        self.topLabel = UILabel(frame: CGRect.zero)
-        topLabel!.backgroundColor = grayWithAlpha
-        topLabel!.font = UIFont.boldSystemFont(ofSize: 12)
-        if (viewModel.params.count > 0) {
-        	topLabel!.text = viewModel.params[0]
-        }
-        topLabel!.textAlignment = .center
-        webView!.addSubview(topLabel!)
+        self.topLabel = LabelCreator.createSimpleLabel(text: viewModel.topParam() ?? "")
+		webView!.addSubview(topLabel!)
 
-        self.midLabel = UILabel(frame: CGRect.zero)
-        midLabel!.backgroundColor = grayWithAlpha
-        midLabel!.font = UIFont.boldSystemFont(ofSize: 12)
-        midLabel!.text = adID
-        midLabel!.textAlignment = .center
+        self.midLabel = LabelCreator.createSimpleLabel(text: adID)
         webView!.addSubview(midLabel!)
 
-        self.bottomLabel = UILabel(frame: CGRect.zero)
+        self.bottomLabel = LabelCreator.createSimpleLabel(text: viewModel.bottomParam() ?? "")
         bottomLabel!.backgroundColor = UIColor.lightGray
-        bottomLabel!.font = UIFont.boldSystemFont(ofSize: 12)
-        if (viewModel.params.count > 1) {
-            bottomLabel!.text = viewModel.params[1]
-        }
-        bottomLabel!.textAlignment = .center
         webView!.addSubview(bottomLabel!)
 
         self.btnClose = UIButton(frame: CGRect.zero)
         btnClose!.setTitle("X", for: .normal)
         btnClose!.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        btnClose!.backgroundColor = grayWithAlpha
+        btnClose!.backgroundColor = UIColor.Gray.halfAlpha
         btnClose!.layer.cornerRadius = 15
         webView!.addSubview(btnClose!)
 
@@ -113,7 +97,6 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         let webHeight: CGFloat = webView?.frame.size.height ?? 100;
         bottomLabel?.frame = CGRect(x: 0, y: webHeight-hLabel*2, width: wLabel, height: hLabel*2)
 
-
         let midY  = webHeight / 2.0;
         midLabel?.frame = CGRect(x: 0, y: midY - hLabel, width: wLabel, height: hLabel*2)
 
@@ -126,14 +109,14 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
             self.webView?.center = hiddenContentCenter
         }
 
-        btnClose!.frame = CGRect(x: 10, y: 10, width: 30, height: 30)
+        btnClose!.frame = CGRect(x: 10, y: 35, width: 30, height: 30)
     }
 
     func detectStatusBarHeight() {
         if UIDevice.current.orientation.isLandscape {
-            statusBarFrameL = UIApplication.shared.statusBarFrame.height
+            statusBarFrameL = StatusBarManager.height()
         } else {
-            statusBarFrameP = UIApplication.shared.statusBarFrame.height
+            statusBarFrameP = StatusBarManager.height()
         }
     }
 
@@ -198,11 +181,12 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
                         self.isADVisibleNow = false
                         if let vm = self.viewModel {
 
-                            vm.callbackClose(vm.params[2], vm.params[3], vm.params[4])
+                            vm.callbackClose(vm.param(index: 2) ?? "",
+                                             vm.param(index: 3) ?? "",
+                                             vm.param(index: 4) ?? "")
                             ended()
                         }
         })
-
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

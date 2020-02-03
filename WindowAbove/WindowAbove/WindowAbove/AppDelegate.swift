@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ad: ADViewModel = ADViewModel(params: "app foreground < iOS 13", "bottom", "p3", "p4", "p5",callbackOpen: {
         }) {  (val1, val2, val3) in
         }
-        //ADPresenter.shared.initADEachTime = false // if false - don't reload page each time
+        ADPresenter.shared.initADEachTime = false // if false - don't reload page each time
         ADPresenter.shared.showAD(viewModel: ad)
     }
     

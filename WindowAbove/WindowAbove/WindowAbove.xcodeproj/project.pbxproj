@@ -17,6 +17,9 @@
 		03B40B6E23DEEB2D005E557B /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B6D23DEEB2D005E557B /* ADPresenter.swift */; };
 		03B40BB023DF063C005E557B /* ADViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40BAF23DF063B005E557B /* ADViewModel.swift */; };
 		03B46F3923E46863001725DC /* ADIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B46F3823E46863001725DC /* ADIdentifier.swift */; };
+		03B6080423E8604500B912B2 /* LabelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080323E8604500B912B2 /* LabelCreator.swift */; };
+		03B6080623E860C100B912B2 /* UIColor+OwnColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */; };
+		03B6080823E862BE00B912B2 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080723E862BE00B912B2 /* StatusBarManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		03B40B6D23DEEB2D005E557B /* ADPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADPresenter.swift; sourceTree = "<group>"; };
 		03B40BAF23DF063B005E557B /* ADViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADViewModel.swift; sourceTree = "<group>"; };
 		03B46F3823E46863001725DC /* ADIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADIdentifier.swift; sourceTree = "<group>"; };
+		03B6080323E8604500B912B2 /* LabelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCreator.swift; sourceTree = "<group>"; };
+		03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+OwnColors.swift"; sourceTree = "<group>"; };
+		03B6080723E862BE00B912B2 /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 				03205ECC23D98D1A000233FF /* SceneDelegate.swift */,
 				03205ECE23D98D1A000233FF /* ViewController.swift */,
 				03205EE423D9A5F0000233FF /* ADmanualViewController.swift */,
+				03B6080323E8604500B912B2 /* LabelCreator.swift */,
+				03B6080723E862BE00B912B2 /* StatusBarManager.swift */,
+				03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */,
 				03B40BAF23DF063B005E557B /* ADViewModel.swift */,
 				03B40B6D23DEEB2D005E557B /* ADPresenter.swift */,
 				03B46F3823E46863001725DC /* ADIdentifier.swift */,
@@ -151,10 +160,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03B46F3923E46863001725DC /* ADIdentifier.swift in Sources */,
+				03B6080823E862BE00B912B2 /* StatusBarManager.swift in Sources */,
 				03205ECF23D98D1A000233FF /* ViewController.swift in Sources */,
+				03B6080623E860C100B912B2 /* UIColor+OwnColors.swift in Sources */,
 				03B40BB023DF063C005E557B /* ADViewModel.swift in Sources */,
 				03205EE523D9A5F0000233FF /* ADmanualViewController.swift in Sources */,
 				03B40B6E23DEEB2D005E557B /* ADPresenter.swift in Sources */,
+				03B6080423E8604500B912B2 /* LabelCreator.swift in Sources */,
 				03205ECB23D98D1A000233FF /* AppDelegate.swift in Sources */,
 				03205ECD23D98D1A000233FF /* SceneDelegate.swift in Sources */,
 			);
