@@ -73,11 +73,9 @@
 				03205ECA23D98D1A000233FF /* AppDelegate.swift */,
 				03205ECC23D98D1A000233FF /* SceneDelegate.swift */,
 				03205ECE23D98D1A000233FF /* ViewController.swift */,
-				03205EE423D9A5F0000233FF /* ADmanualViewController.swift */,
-				03B6080323E8604500B912B2 /* LabelCreator.swift */,
-				03B6080723E862BE00B912B2 /* StatusBarManager.swift */,
-				03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */,
+				03B6080923E8653E00B912B2 /* Support */,
 				03B40BAF23DF063B005E557B /* ADViewModel.swift */,
+				03205EE423D9A5F0000233FF /* ADmanualViewController.swift */,
 				03B40B6D23DEEB2D005E557B /* ADPresenter.swift */,
 				03B46F3823E46863001725DC /* ADIdentifier.swift */,
 				03205ED023D98D1A000233FF /* Main.storyboard */,
@@ -86,6 +84,16 @@
 				03205ED823D98D1E000233FF /* Info.plist */,
 			);
 			path = WindowAbove;
+			sourceTree = "<group>";
+		};
+		03B6080923E8653E00B912B2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				03B6080323E8604500B912B2 /* LabelCreator.swift */,
+				03B6080723E862BE00B912B2 /* StatusBarManager.swift */,
+				03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

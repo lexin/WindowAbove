@@ -34,10 +34,9 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
     var currentOrientation : UIDeviceOrientation? = nil
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
+    //MARK: life
+    //MARK: -
     init(viewModel: ADViewModel, adID: String) {
         super.init(nibName: nil, bundle: nil)
 
@@ -46,15 +45,20 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         self.viewModel = viewModel
         self.view.backgroundColor = UIColor.clear
 
+        // container view
         self.centerView = UIView(frame: CGRect.zero)
         centerView!.backgroundColor = UIColor.clear
         self.view.addSubview(centerView!)
+        //
 
+        // webView
         self.webView = WKWebView(frame: CGRect.zero);
         self.webView?.navigationDelegate = self
         centerView!.addSubview(webView!)
         self.load()
+        //
 
+        // set of labels --
         self.topLabel = LabelCreator.createSimpleLabel(text: viewModel.topParam() ?? "")
 		webView!.addSubview(topLabel!)
 
@@ -64,17 +68,48 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         self.bottomLabel = LabelCreator.createSimpleLabel(text: viewModel.bottomParam() ?? "")
         bottomLabel!.backgroundColor = UIColor.lightGray
         webView!.addSubview(bottomLabel!)
+        //
 
+        // close button
         self.btnClose = UIButton(frame: CGRect.zero)
         btnClose!.setTitle("X", for: .normal)
         btnClose!.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         btnClose!.backgroundColor = UIColor.Gray.halfAlpha
         btnClose!.layer.cornerRadius = 15
         webView!.addSubview(btnClose!)
+        //
 
         self.currentOrientation = UIDevice.current.orientation
-
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if (statusBarFrameP == nil) || ( statusBarFrameL == nil) {
+            detectStatusBarHeight()
+            setProperFrames(mainSize: self.view.frame.size)
+        }
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if let currentOrientation = self.currentOrientation {
+            if (currentOrientation != UIDevice.current.orientation) {
+                adShouldBeReInit?()
+            }
+        } else {
+            self.currentOrientation = UIDevice.current.orientation
+        }
+        setProperFrames(mainSize:size)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //MARK: -
 
     @objc func buttonAction(sender: UIButton!) {
         btnCloseClicked?()
@@ -120,32 +155,6 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         }
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        if (statusBarFrameP == nil) || ( statusBarFrameL == nil) {
-        	detectStatusBarHeight()
-        	setProperFrames(mainSize: self.view.frame.size)
-        }
-    }
-
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        if let currentOrientation = self.currentOrientation {
-            if (currentOrientation != UIDevice.current.orientation) {
-				print("new orientation")
-                adShouldBeReInit?()
-            } else {
-				print("same orientation")
-            }
-
-        } else {
-            self.currentOrientation = UIDevice.current.orientation
-            print("set orientation")
-        }
-        setProperFrames(mainSize:size)
-    }
-
     func load() {
         let request = URLRequest(url: URL(string: "https://www.pollfish.com")!)
         webView?.load(request)
@@ -189,6 +198,9 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         })
     }
 
+
+    //MARK: webView delegate
+    //MARK: -
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         print ("webView didStartProvisionalNavigation")
     }
@@ -222,11 +234,6 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         adIsLoaded? ()
         print ("webView didFail \(error.localizedDescription)")
-    }
-
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
 }

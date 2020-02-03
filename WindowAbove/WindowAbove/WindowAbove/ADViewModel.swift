@@ -17,7 +17,6 @@ public class ADViewModel: NSObject {
     let callbackClose : CallbackCloseType
     let callbackOpen : CallbackOpenType
 
-//    public init(param1: String, param2: String, param3: String, param4: String, param5: String, callbackOpen: @escaping CallbackOpenType,  callbackClose : @escaping CallbackCloseType) {
     public init(params: String..., callbackOpen: @escaping CallbackOpenType,  callbackClose : @escaping CallbackCloseType) {
         self.params = params
 
