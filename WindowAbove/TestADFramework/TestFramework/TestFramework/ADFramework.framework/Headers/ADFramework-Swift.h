@@ -212,6 +212,13 @@ SWIFT_CLASS("_TtC11ADFramework11ADPresenter")
 - (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+SWIFT_CLASS("_TtC11ADFramework11ADViewModel")
+@interface ADViewModel : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
 #endif

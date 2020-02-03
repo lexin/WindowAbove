@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/ADFramework-Swift.h</key>
 		<data>
-		YKuHwC3MdVUv948SiDy/NJRUIjs=
+		+9Qh55UnH71MiX+WMHKwIyxqZ6Y=
 		</data>
 		<key>Headers/ADFramework.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/ADFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		+cMNpoISEk5X8GLHoVwRL2bb9Q8=
+		UNE76sYULYY7UJ7oySwDXsIMeas=
 		</data>
 		<key>Modules/ADFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/ADFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		+cMNpoISEk5X8GLHoVwRL2bb9Q8=
+		UNE76sYULYY7UJ7oySwDXsIMeas=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,7 +43,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Aqu9LtNRN5SRxWUAP50tdpiAKj+fcGlIPLSEEIFbSJ4=
+			PBSJ0sTgggvNc3+0n6wF7ynGk8VX5rdGrf0TJJ46JZE=
 			</data>
 		</dict>
 		<key>Headers/ADFramework.h</key>
@@ -64,7 +64,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+VsDjD6fUvdXKu7kIaqWFRZQfwdF7DidBBV6nGYok50=
+			Pz0nmh77ka2X7rnKIumlF/DZG5VxuDrfWBRorJFzwzQ=
 			</data>
 		</dict>
 		<key>Modules/ADFramework.swiftmodule/x86_64.swiftdoc</key>
@@ -78,7 +78,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+VsDjD6fUvdXKu7kIaqWFRZQfwdF7DidBBV6nGYok50=
+			Pz0nmh77ka2X7rnKIumlF/DZG5VxuDrfWBRorJFzwzQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

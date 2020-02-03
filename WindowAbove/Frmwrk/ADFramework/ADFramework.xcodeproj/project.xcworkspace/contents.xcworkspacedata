@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ADFramework.xcodeproj">
+      location = "group:/Users/lexin/WORK/WindowAboveGit/WindowAbove/Frmwrk/ADFramework/ADFramework/ADIdentifier.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

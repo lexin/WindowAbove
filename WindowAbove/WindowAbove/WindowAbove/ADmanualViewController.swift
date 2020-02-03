@@ -78,7 +78,7 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         webView!.addSubview(bottomLabel!)
 
         self.btnClose = UIButton(frame: CGRect.zero)
-        btnClose!.setImage(UIImage(imageLiteralResourceName: "close"), for: .normal)
+        btnClose!.setTitle("X", for: .normal)
         btnClose!.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         btnClose!.backgroundColor = grayWithAlpha
         btnClose!.layer.cornerRadius = 15

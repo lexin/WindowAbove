@@ -16,74 +16,93 @@ public class ADPresenter: NSObject {
     }()
 
 
+    public var initADEachTime: Bool = true
+
+    var viewModel : ADViewModel? = nil
+    var alreadyStartedProcess = false
+
     override private init() {
         super.init()
-		print ("self \(self)")
     }
-
-    public func testPublicAD() {
-        print("testPublicAD")
-    }
-
-    public func showAD() {
-        if #available(iOS 13.0, *) {
-            coverEverything13()
+    
+    public func showAD(viewModel: ADViewModel) {
+        if (alreadyStartedProcess == false) {
+            alreadyStartedProcess = true
+        	self.viewModel = viewModel
+        	coverEverything(viewModel: viewModel)
         } else {
-            coverEverythingOld()
+            print("the process is already start")
         }
     }
     
 
     public func hideAD() {
-        //let deadlineTime = DispatchTime.now() + .milliseconds(2500)
-          //    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-                self.coveringWindow?.isHidden = true
-            //  }
+        self.adVC?.close {
+        	self.coveringWindow?.isHidden = true
+        }
     }
 
     var coveringWindow: UIWindow?
+    var adVC: ADmanualViewController?
 
-    func coverEverything13() {
-        if #available(iOS 13.0, *) {
-            let windowScene = UIApplication.shared
-                .connectedScenes
-                .filter { $0.activationState == .foregroundActive }
-                .first
+    func coverEverything(viewModel: ADViewModel) {
 
-            if let windowScene = windowScene as? UIWindowScene {
-                if (coveringWindow==nil) {
-                    coveringWindow = UIWindow(windowScene: windowScene)
-                    if let coveringWindow = coveringWindow {
-                        coveringWindow.frame = UIScreen.main.bounds
-                        coveringWindow.backgroundColor = UIColor.clear
-                        coveringWindow.windowLevel = UIWindow.Level.alert + 1
-                        coveringWindow.isHidden = false
-                        coveringWindow.makeKeyAndVisible()
-                        let adVC: ADmanualViewController = ADmanualViewController(viewModel: "VM", someDependency: "dep")
-
-                        coveringWindow.rootViewController = adVC
-                    }
-                } else {
-                    coveringWindow?.isHidden = false
-                }
-            }
+        guard let adID = ADIdentifier.shared.identifierForAdvertising() else {
+            return
         }
-    }
+        
 
-    func coverEverythingOld() {
         if (coveringWindow==nil) {
-            coveringWindow = UIWindow(frame: UIScreen.main.bounds)
+            if #available(iOS 13.0, *) {
+                let windowScene = UIApplication.shared
+                    .connectedScenes
+                    .filter { $0.activationState == .foregroundActive }
+                    .first
+                if let windowScene = windowScene as? UIWindowScene {
+                    if (coveringWindow==nil) {
+                        coveringWindow = UIWindow(windowScene: windowScene)
+                    }
+                }
+            } else  { //older than ios 13
+                coveringWindow = UIWindow(frame: UIScreen.main.bounds)
+            }
 
             if let coveringWindow = coveringWindow {
+                coveringWindow.frame = UIScreen.main.bounds
                 coveringWindow.backgroundColor = UIColor.clear
                 coveringWindow.windowLevel = UIWindow.Level.alert + 1
-                coveringWindow.isHidden = false
-                let adVC: ADmanualViewController = ADmanualViewController(viewModel: "VM", someDependency: "dep")
+
+                coveringWindow.makeKeyAndVisible()
+                adVC = ADmanualViewController(viewModel: viewModel, adID: adID)
                 coveringWindow.rootViewController = adVC
+                coveringWindow.isHidden = true
+
+            } else {
+                //something wrong with window creation
+            }
+        } else {
+
+            if ( (adVC == nil) || (self.initADEachTime) ) {
+                adVC = ADmanualViewController(viewModel: viewModel, adID: adID)
+                coveringWindow?.isHidden = true
+            } else {
+                adVC?.show {}
+            }
+             if let coveringWindow = coveringWindow {
+            	coveringWindow.rootViewController = adVC
             }
         }
-        else {
-            coveringWindow?.isHidden = false
+        adVC?.btnCloseClicked = {
+            self.hideAD()
+        }
+        adVC?.adIsLoaded = {
+            self.alreadyStartedProcess = false
+            self.coveringWindow?.isHidden = false
+        }
+        adVC?.adShouldBeReInit = {
+            if let viewModel = self.viewModel {
+                self.coverEverything(viewModel: viewModel)
+            }
         }
     }
 }
