@@ -58,14 +58,16 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
 
         self.topLabel = UILabel(frame: CGRect.zero)
         topLabel!.backgroundColor = grayWithAlpha
-        topLabel!.font = UIFont.boldSystemFont(ofSize: 14)
-        topLabel!.text = viewModel.param1
+        topLabel!.font = UIFont.boldSystemFont(ofSize: 12)
+        if (viewModel.params.count > 0) {
+        	topLabel!.text = viewModel.params[0]
+        }
         topLabel!.textAlignment = .center
         webView!.addSubview(topLabel!)
 
         self.midLabel = UILabel(frame: CGRect.zero)
         midLabel!.backgroundColor = grayWithAlpha
-        midLabel!.font = UIFont.boldSystemFont(ofSize: 14)
+        midLabel!.font = UIFont.boldSystemFont(ofSize: 12)
         midLabel!.text = adID
         midLabel!.textAlignment = .center
         webView!.addSubview(midLabel!)
@@ -73,7 +75,9 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
         self.bottomLabel = UILabel(frame: CGRect.zero)
         bottomLabel!.backgroundColor = UIColor.lightGray
         bottomLabel!.font = UIFont.boldSystemFont(ofSize: 12)
-        bottomLabel!.text = viewModel.param2
+        if (viewModel.params.count > 1) {
+            bottomLabel!.text = viewModel.params[1]
+        }
         bottomLabel!.textAlignment = .center
         webView!.addSubview(bottomLabel!)
 
@@ -193,7 +197,8 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
                        completion: { (_) in
                         self.isADVisibleNow = false
                         if let vm = self.viewModel {
-                            vm.callbackClose(vm.param3, vm.param4, vm.param5)
+
+                            vm.callbackClose(vm.params[2], vm.params[3], vm.params[4])
                             ended()
                         }
         })
@@ -239,15 +244,5 @@ class ADmanualViewController: UIViewController, WKNavigationDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 
 }

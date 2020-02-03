@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         let deadlineTime = DispatchTime.now() + .milliseconds(250)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            let ad: ADViewModel = ADViewModel(param1: "app foreground iOS 13", param2: "bottom", param3: "r1", param4: "r2", param5: "r3", callbackOpen: {                
+             let ad: ADViewModel = ADViewModel(params: "app foreground iOS 13", "bottom", "p3", "p4", "p5",callbackOpen: {
             }) {  (val1, val2, val3) in
 
             }

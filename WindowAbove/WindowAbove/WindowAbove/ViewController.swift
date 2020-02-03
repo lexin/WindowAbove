@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnOpenClick(_ sender: Any) {
-        let ad: ADViewModel = ADViewModel(param1: "button click", param2: "bottom", param3: "r1", param4: "r2", param5: "r3", callbackOpen: {
+         let ad: ADViewModel = ADViewModel(params: "button click", "bottom", "p3", "p4", "p5",callbackOpen: {
             print ("opened")
         }) {  (val1, val2, val3) in
             print ("closed")
