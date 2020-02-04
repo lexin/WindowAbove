@@ -20,7 +20,25 @@
 		03B6080423E8604500B912B2 /* LabelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080323E8604500B912B2 /* LabelCreator.swift */; };
 		03B6080623E860C100B912B2 /* UIColor+OwnColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */; };
 		03B6080823E862BE00B912B2 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080723E862BE00B912B2 /* StatusBarManager.swift */; };
+		03B6081123E867E800B912B2 /* WindowAboveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6081023E867E800B912B2 /* WindowAboveTests.swift */; };
+		03B6081823E867F500B912B2 /* LabelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080323E8604500B912B2 /* LabelCreator.swift */; };
+		03B6081923E867F500B912B2 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080723E862BE00B912B2 /* StatusBarManager.swift */; };
+		03B6081A23E867F500B912B2 /* UIColor+OwnColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */; };
+		03B6081B23E867F800B912B2 /* ADViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40BAF23DF063B005E557B /* ADViewModel.swift */; };
+		03B6081C23E867F800B912B2 /* ADmanualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205EE423D9A5F0000233FF /* ADmanualViewController.swift */; };
+		03B6081D23E867F800B912B2 /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B6D23DEEB2D005E557B /* ADPresenter.swift */; };
+		03B6081E23E867F800B912B2 /* ADIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B46F3823E46863001725DC /* ADIdentifier.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03B6081323E867E800B912B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03205EBF23D98D1A000233FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03205EC623D98D1A000233FF;
+			remoteInfo = WindowAbove;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		03205EC723D98D1A000233FF /* WindowAbove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WindowAbove.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,10 +56,20 @@
 		03B6080323E8604500B912B2 /* LabelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCreator.swift; sourceTree = "<group>"; };
 		03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+OwnColors.swift"; sourceTree = "<group>"; };
 		03B6080723E862BE00B912B2 /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
+		03B6080E23E867E700B912B2 /* WindowAboveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WindowAboveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03B6081023E867E800B912B2 /* WindowAboveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAboveTests.swift; sourceTree = "<group>"; };
+		03B6081223E867E800B912B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		03205EC423D98D1A000233FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03B6080B23E867E700B912B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				03205EC923D98D1A000233FF /* WindowAbove */,
+				03B6080F23E867E800B912B2 /* WindowAboveTests */,
 				03205EC823D98D1A000233FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				03205EC723D98D1A000233FF /* WindowAbove.app */,
+				03B6080E23E867E700B912B2 /* WindowAboveTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +126,15 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		03B6080F23E867E800B912B2 /* WindowAboveTests */ = {
+			isa = PBXGroup;
+			children = (
+				03B6081023E867E800B912B2 /* WindowAboveTests.swift */,
+				03B6081223E867E800B912B2 /* Info.plist */,
+			);
+			path = WindowAboveTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,6 +155,24 @@
 			productReference = 03205EC723D98D1A000233FF /* WindowAbove.app */;
 			productType = "com.apple.product-type.application";
 		};
+		03B6080D23E867E700B912B2 /* WindowAboveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03B6081523E867E800B912B2 /* Build configuration list for PBXNativeTarget "WindowAboveTests" */;
+			buildPhases = (
+				03B6080A23E867E700B912B2 /* Sources */,
+				03B6080B23E867E700B912B2 /* Frameworks */,
+				03B6080C23E867E700B912B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03B6081423E867E800B912B2 /* PBXTargetDependency */,
+			);
+			name = WindowAboveTests;
+			productName = WindowAboveTests;
+			productReference = 03B6080E23E867E700B912B2 /* WindowAboveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -128,6 +185,10 @@
 				TargetAttributes = {
 					03205EC623D98D1A000233FF = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					03B6080D23E867E700B912B2 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 03205EC623D98D1A000233FF;
 					};
 				};
 			};
@@ -145,6 +206,7 @@
 			projectRoot = "";
 			targets = (
 				03205EC623D98D1A000233FF /* WindowAbove */,
+				03B6080D23E867E700B912B2 /* WindowAboveTests */,
 			);
 		};
 /* End PBXProject section */
@@ -157,6 +219,13 @@
 				03205ED723D98D1E000233FF /* LaunchScreen.storyboard in Resources */,
 				03205ED423D98D1E000233FF /* ADAssets.xcassets in Resources */,
 				03205ED223D98D1A000233FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03B6080C23E867E700B912B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +249,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03B6080A23E867E700B912B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03B6081D23E867F800B912B2 /* ADPresenter.swift in Sources */,
+				03B6081B23E867F800B912B2 /* ADViewModel.swift in Sources */,
+				03B6081A23E867F500B912B2 /* UIColor+OwnColors.swift in Sources */,
+				03B6081923E867F500B912B2 /* StatusBarManager.swift in Sources */,
+				03B6081123E867E800B912B2 /* WindowAboveTests.swift in Sources */,
+				03B6081E23E867F800B912B2 /* ADIdentifier.swift in Sources */,
+				03B6081823E867F500B912B2 /* LabelCreator.swift in Sources */,
+				03B6081C23E867F800B912B2 /* ADmanualViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03B6081423E867E800B912B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03205EC623D98D1A000233FF /* WindowAbove */;
+			targetProxy = 03B6081323E867E800B912B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		03205ED023D98D1A000233FF /* Main.storyboard */ = {
@@ -354,6 +446,44 @@
 			};
 			name = Release;
 		};
+		03B6081623E867E800B912B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WindowAboveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = romanko.WindowAboveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WindowAbove.app/WindowAbove";
+			};
+			name = Debug;
+		};
+		03B6081723E867E800B912B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WindowAboveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = romanko.WindowAboveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WindowAbove.app/WindowAbove";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -371,6 +501,15 @@
 			buildConfigurations = (
 				03205EDC23D98D1E000233FF /* Debug */,
 				03205EDD23D98D1E000233FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03B6081523E867E800B912B2 /* Build configuration list for PBXNativeTarget "WindowAboveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03B6081623E867E800B912B2 /* Debug */,
+				03B6081723E867E800B912B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
