@@ -14,6 +14,14 @@
 		03205ED423D98D1E000233FF /* ADAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03205ED323D98D1E000233FF /* ADAssets.xcassets */; };
 		03205ED723D98D1E000233FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03205ED523D98D1E000233FF /* LaunchScreen.storyboard */; };
 		03205EE523D9A5F0000233FF /* ADmanualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205EE423D9A5F0000233FF /* ADmanualViewController.swift */; };
+		035221C923E9B61500185E57 /* WindowAboveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035221C823E9B61500185E57 /* WindowAboveUITests.swift */; };
+		035221D423E9B6BA00185E57 /* ADViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40BAF23DF063B005E557B /* ADViewModel.swift */; };
+		035221D523E9B6BA00185E57 /* ADmanualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03205EE423D9A5F0000233FF /* ADmanualViewController.swift */; };
+		035221D623E9B6BA00185E57 /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B6D23DEEB2D005E557B /* ADPresenter.swift */; };
+		035221D723E9B6BA00185E57 /* ADIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B46F3823E46863001725DC /* ADIdentifier.swift */; };
+		035221D823E9B6BE00185E57 /* LabelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080323E8604500B912B2 /* LabelCreator.swift */; };
+		035221D923E9B6BE00185E57 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080723E862BE00B912B2 /* StatusBarManager.swift */; };
+		035221DA23E9B6BE00185E57 /* UIColor+OwnColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B6080523E860C100B912B2 /* UIColor+OwnColors.swift */; };
 		03B40B6E23DEEB2D005E557B /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B6D23DEEB2D005E557B /* ADPresenter.swift */; };
 		03B40BB023DF063C005E557B /* ADViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40BAF23DF063B005E557B /* ADViewModel.swift */; };
 		03B46F3923E46863001725DC /* ADIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B46F3823E46863001725DC /* ADIdentifier.swift */; };
@@ -31,6 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		035221CB23E9B61500185E57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03205EBF23D98D1A000233FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03205EC623D98D1A000233FF;
+			remoteInfo = WindowAbove;
+		};
 		03B6081323E867E800B912B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03205EBF23D98D1A000233FF /* Project object */;
@@ -50,6 +65,9 @@
 		03205ED623D98D1E000233FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03205ED823D98D1E000233FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03205EE423D9A5F0000233FF /* ADmanualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADmanualViewController.swift; sourceTree = "<group>"; };
+		035221C623E9B61500185E57 /* WindowAboveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WindowAboveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		035221C823E9B61500185E57 /* WindowAboveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAboveUITests.swift; sourceTree = "<group>"; };
+		035221CA23E9B61500185E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B40B6D23DEEB2D005E557B /* ADPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADPresenter.swift; sourceTree = "<group>"; };
 		03B40BAF23DF063B005E557B /* ADViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADViewModel.swift; sourceTree = "<group>"; };
 		03B46F3823E46863001725DC /* ADIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADIdentifier.swift; sourceTree = "<group>"; };
@@ -63,6 +81,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		03205EC423D98D1A000233FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		035221C323E9B61500185E57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -84,6 +109,7 @@
 			children = (
 				03205EC923D98D1A000233FF /* WindowAbove */,
 				03B6080F23E867E800B912B2 /* WindowAboveTests */,
+				035221C723E9B61500185E57 /* WindowAboveUITests */,
 				03205EC823D98D1A000233FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +119,7 @@
 			children = (
 				03205EC723D98D1A000233FF /* WindowAbove.app */,
 				03B6080E23E867E700B912B2 /* WindowAboveTests.xctest */,
+				035221C623E9B61500185E57 /* WindowAboveUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +141,15 @@
 				03205ED823D98D1E000233FF /* Info.plist */,
 			);
 			path = WindowAbove;
+			sourceTree = "<group>";
+		};
+		035221C723E9B61500185E57 /* WindowAboveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				035221C823E9B61500185E57 /* WindowAboveUITests.swift */,
+				035221CA23E9B61500185E57 /* Info.plist */,
+			);
+			path = WindowAboveUITests;
 			sourceTree = "<group>";
 		};
 		03B6080923E8653E00B912B2 /* Support */ = {
@@ -155,6 +191,24 @@
 			productReference = 03205EC723D98D1A000233FF /* WindowAbove.app */;
 			productType = "com.apple.product-type.application";
 		};
+		035221C523E9B61500185E57 /* WindowAboveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 035221CD23E9B61500185E57 /* Build configuration list for PBXNativeTarget "WindowAboveUITests" */;
+			buildPhases = (
+				035221C223E9B61500185E57 /* Sources */,
+				035221C323E9B61500185E57 /* Frameworks */,
+				035221C423E9B61500185E57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				035221CC23E9B61500185E57 /* PBXTargetDependency */,
+			);
+			name = WindowAboveUITests;
+			productName = WindowAboveUITests;
+			productReference = 035221C623E9B61500185E57 /* WindowAboveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		03B6080D23E867E700B912B2 /* WindowAboveTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03B6081523E867E800B912B2 /* Build configuration list for PBXNativeTarget "WindowAboveTests" */;
@@ -186,6 +240,10 @@
 					03205EC623D98D1A000233FF = {
 						CreatedOnToolsVersion = 11.3;
 					};
+					035221C523E9B61500185E57 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 03205EC623D98D1A000233FF;
+					};
 					03B6080D23E867E700B912B2 = {
 						CreatedOnToolsVersion = 11.3;
 						TestTargetID = 03205EC623D98D1A000233FF;
@@ -207,6 +265,7 @@
 			targets = (
 				03205EC623D98D1A000233FF /* WindowAbove */,
 				03B6080D23E867E700B912B2 /* WindowAboveTests */,
+				035221C523E9B61500185E57 /* WindowAboveUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,6 +278,13 @@
 				03205ED723D98D1E000233FF /* LaunchScreen.storyboard in Resources */,
 				03205ED423D98D1E000233FF /* ADAssets.xcassets in Resources */,
 				03205ED223D98D1A000233FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		035221C423E9B61500185E57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +315,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		035221C223E9B61500185E57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035221DA23E9B6BE00185E57 /* UIColor+OwnColors.swift in Sources */,
+				035221C923E9B61500185E57 /* WindowAboveUITests.swift in Sources */,
+				035221D823E9B6BE00185E57 /* LabelCreator.swift in Sources */,
+				035221D623E9B6BA00185E57 /* ADPresenter.swift in Sources */,
+				035221D923E9B6BE00185E57 /* StatusBarManager.swift in Sources */,
+				035221D423E9B6BA00185E57 /* ADViewModel.swift in Sources */,
+				035221D523E9B6BA00185E57 /* ADmanualViewController.swift in Sources */,
+				035221D723E9B6BA00185E57 /* ADIdentifier.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03B6080A23E867E700B912B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +348,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		035221CC23E9B61500185E57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03205EC623D98D1A000233FF /* WindowAbove */;
+			targetProxy = 035221CB23E9B61500185E57 /* PBXContainerItemProxy */;
+		};
 		03B6081423E867E800B912B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 03205EC623D98D1A000233FF /* WindowAbove */;
@@ -421,7 +507,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = romanko.WindowAbove;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WindowAbove;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,9 +526,45 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = romanko.WindowAbove;
+				PRODUCT_NAME = WindowAbove;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		035221CE23E9B61500185E57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WindowAboveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = romanko.WindowAboveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WindowAbove;
+			};
+			name = Debug;
+		};
+		035221CF23E9B61500185E57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WindowAboveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = romanko.WindowAboveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WindowAbove;
 			};
 			name = Release;
 		};
@@ -501,6 +623,15 @@
 			buildConfigurations = (
 				03205EDC23D98D1E000233FF /* Debug */,
 				03205EDD23D98D1E000233FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		035221CD23E9B61500185E57 /* Build configuration list for PBXNativeTarget "WindowAboveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				035221CE23E9B61500185E57 /* Debug */,
+				035221CF23E9B61500185E57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -16,9 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC8-gM-cbC">
-                                <rect key="frame" x="20" y="100" width="214" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC8-gM-cbC">
+                                <rect key="frame" x="157" y="100" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="IFg-NU-KTs"/>
+                                </constraints>
                                 <state key="normal" title="  Open  "/>
                                 <connections>
                                     <action selector="btnOpenClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jq4-fe-vm1"/>
@@ -26,6 +28,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nC8-gM-cbC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0d9-YY-AGW"/>
+                            <constraint firstItem="nC8-gM-cbC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="Q6M-Nk-Rc2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

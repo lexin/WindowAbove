@@ -51,7 +51,6 @@ public class ADPresenter: NSObject {
             return
         }
         
-
         if (coveringWindow==nil) {
             if #available(iOS 13.0, *) {
                 let windowScene = UIApplication.shared
