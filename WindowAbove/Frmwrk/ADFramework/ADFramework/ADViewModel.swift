@@ -11,22 +11,33 @@ import UIKit
 public typealias CallbackCloseType = (_ p3: String, _ p4: String, _ p5: String) -> ()
 public typealias CallbackOpenType = () -> ()
 public class ADViewModel: NSObject {
-    let param1 : String //top label
-    let param2 : String //bottom lable
-    let param3 : String //returned value
-    let param4 : String //returned value
-    let param5 : String //returned value
+
+    private let params: [String]
 
     let callbackClose : CallbackCloseType
     let callbackOpen : CallbackOpenType
 
-    public init(param1: String, param2: String, param3: String, param4: String, param5: String, callbackOpen: @escaping CallbackOpenType,  callbackClose : @escaping CallbackCloseType) {
-        self.param1 = param1
-        self.param2 = param2
-        self.param3 = param3
-        self.param4 = param4
-        self.param5 = param5
+    public init(params: String..., callbackOpen: @escaping CallbackOpenType,  callbackClose : @escaping CallbackCloseType) {
+        self.params = params
+
         self.callbackClose = callbackClose
         self.callbackOpen = callbackOpen
     }
+
+    func param(index: Int) -> String? {
+        if (self.params.count > index) {
+            return self.params[index]
+        }
+        return nil
+    }
+
+    func topParam() -> String? {
+        return param(index: 0)
+    }
+
+    func bottomParam() -> String? {
+        return param(index: 1)
+    }
+    
+
 }

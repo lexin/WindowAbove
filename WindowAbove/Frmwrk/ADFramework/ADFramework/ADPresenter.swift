@@ -28,8 +28,8 @@ public class ADPresenter: NSObject {
     public func showAD(viewModel: ADViewModel) {
         if (alreadyStartedProcess == false) {
             alreadyStartedProcess = true
-        	self.viewModel = viewModel
-        	coverEverything(viewModel: viewModel)
+            self.viewModel = viewModel
+            coverEverything(viewModel: viewModel)
         } else {
             print("the process is already start")
         }
@@ -38,7 +38,7 @@ public class ADPresenter: NSObject {
 
     public func hideAD() {
         self.adVC?.close {
-        	self.coveringWindow?.isHidden = true
+            self.coveringWindow?.isHidden = true
         }
     }
 
@@ -51,7 +51,6 @@ public class ADPresenter: NSObject {
             return
         }
         
-
         if (coveringWindow==nil) {
             if #available(iOS 13.0, *) {
                 let windowScene = UIApplication.shared
@@ -88,18 +87,18 @@ public class ADPresenter: NSObject {
             } else {
                 adVC?.show {}
             }
-             if let coveringWindow = coveringWindow {
-            	coveringWindow.rootViewController = adVC
+            if let coveringWindow = coveringWindow {
+                coveringWindow.rootViewController = adVC
             }
         }
-        adVC?.btnCloseClicked = {
+        adVC?.btnCloseClicked = { //when user touch close button
             self.hideAD()
         }
-        adVC?.adIsLoaded = {
+        adVC?.adIsLoaded = { //when content is loaded
             self.alreadyStartedProcess = false
             self.coveringWindow?.isHidden = false
         }
-        adVC?.adShouldBeReInit = {
+        adVC?.adShouldBeReInit = { //when lib triggers reinit
             if let viewModel = self.viewModel {
                 self.coverEverything(viewModel: viewModel)
             }
@@ -108,7 +107,6 @@ public class ADPresenter: NSObject {
 }
 
 extension ADPresenter: NSCopying {
-
     public func copy(with zone: NSZone? = nil) -> Any {
         return self
     }

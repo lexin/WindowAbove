@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0305820F23E9C7A600B3119C /* ADmanualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305820723E9C7A600B3119C /* ADmanualViewController.swift */; };
+		0305821023E9C7A600B3119C /* ADIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305820823E9C7A600B3119C /* ADIdentifier.swift */; };
+		0305821123E9C7A600B3119C /* UIColor+OwnColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305820A23E9C7A600B3119C /* UIColor+OwnColors.swift */; };
+		0305821223E9C7A600B3119C /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305820B23E9C7A600B3119C /* StatusBarManager.swift */; };
+		0305821323E9C7A600B3119C /* LabelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305820C23E9C7A600B3119C /* LabelCreator.swift */; };
+		0305821423E9C7A600B3119C /* ADViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305820D23E9C7A600B3119C /* ADViewModel.swift */; };
+		0305821523E9C7A600B3119C /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0305820E23E9C7A600B3119C /* ADPresenter.swift */; };
 		03B40B7E23DEF312005E557B /* ADFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 03B40B7C23DEF312005E557B /* ADFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		03B40B8623DEF321005E557B /* ADmanualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B8423DEF321005E557B /* ADmanualViewController.swift */; };
-		03B40B8723DEF321005E557B /* ADPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B40B8523DEF321005E557B /* ADPresenter.swift */; };
-		03B46F3E23E46E9E001725DC /* ADViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B46F3C23E46E9C001725DC /* ADViewModel.swift */; };
-		03B46F3F23E46E9E001725DC /* ADIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B46F3D23E46E9E001725DC /* ADIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0305820723E9C7A600B3119C /* ADmanualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADmanualViewController.swift; sourceTree = "<group>"; };
+		0305820823E9C7A600B3119C /* ADIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADIdentifier.swift; sourceTree = "<group>"; };
+		0305820A23E9C7A600B3119C /* UIColor+OwnColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OwnColors.swift"; sourceTree = "<group>"; };
+		0305820B23E9C7A600B3119C /* StatusBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
+		0305820C23E9C7A600B3119C /* LabelCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCreator.swift; sourceTree = "<group>"; };
+		0305820D23E9C7A600B3119C /* ADViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADViewModel.swift; sourceTree = "<group>"; };
+		0305820E23E9C7A600B3119C /* ADPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADPresenter.swift; sourceTree = "<group>"; };
 		03B40B7923DEF312005E557B /* ADFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ADFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B40B7C23DEF312005E557B /* ADFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADFramework.h; sourceTree = "<group>"; };
 		03B40B7D23DEF312005E557B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03B40B8423DEF321005E557B /* ADmanualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADmanualViewController.swift; sourceTree = "<group>"; };
-		03B40B8523DEF321005E557B /* ADPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADPresenter.swift; sourceTree = "<group>"; };
-		03B46F3C23E46E9C001725DC /* ADViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADViewModel.swift; sourceTree = "<group>"; };
-		03B46F3D23E46E9E001725DC /* ADIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0305820923E9C7A600B3119C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				0305820A23E9C7A600B3119C /* UIColor+OwnColors.swift */,
+				0305820B23E9C7A600B3119C /* StatusBarManager.swift */,
+				0305820C23E9C7A600B3119C /* LabelCreator.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		03B40B6F23DEF312005E557B = {
 			isa = PBXGroup;
 			children = (
@@ -55,10 +71,11 @@
 			isa = PBXGroup;
 			children = (
 				03B40B7C23DEF312005E557B /* ADFramework.h */,
-				03B40B8423DEF321005E557B /* ADmanualViewController.swift */,
-				03B40B8523DEF321005E557B /* ADPresenter.swift */,
-				03B46F3D23E46E9E001725DC /* ADIdentifier.swift */,
-				03B46F3C23E46E9C001725DC /* ADViewModel.swift */,
+				0305820823E9C7A600B3119C /* ADIdentifier.swift */,
+				0305820723E9C7A600B3119C /* ADmanualViewController.swift */,
+				0305820E23E9C7A600B3119C /* ADPresenter.swift */,
+				0305820D23E9C7A600B3119C /* ADViewModel.swift */,
+				0305820923E9C7A600B3119C /* Support */,
 				03B40B7D23DEF312005E557B /* Info.plist */,
 			);
 			path = ADFramework;
@@ -144,10 +161,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03B40B8623DEF321005E557B /* ADmanualViewController.swift in Sources */,
-				03B46F3F23E46E9E001725DC /* ADIdentifier.swift in Sources */,
-				03B46F3E23E46E9E001725DC /* ADViewModel.swift in Sources */,
-				03B40B8723DEF321005E557B /* ADPresenter.swift in Sources */,
+				0305821523E9C7A600B3119C /* ADPresenter.swift in Sources */,
+				0305820F23E9C7A600B3119C /* ADmanualViewController.swift in Sources */,
+				0305821423E9C7A600B3119C /* ADViewModel.swift in Sources */,
+				0305821323E9C7A600B3119C /* LabelCreator.swift in Sources */,
+				0305821223E9C7A600B3119C /* StatusBarManager.swift in Sources */,
+				0305821023E9C7A600B3119C /* ADIdentifier.swift in Sources */,
+				0305821123E9C7A600B3119C /* UIColor+OwnColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
